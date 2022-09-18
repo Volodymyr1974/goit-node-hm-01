@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
     "dev": "nodemon index"
-
   },
   "repository": {
     "type": "git",
@@ -22,5 +21,9 @@
   "homepage": "https://github.com/Volodymyr1974/goit-node-hm-01#readme",
   "devDependencies": {
     "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "nanoid": "^3.3.4",
+    "yargs": "^17.5.1"
   }
 }

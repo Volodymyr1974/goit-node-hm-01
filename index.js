@@ -1,7 +1,6 @@
-// const argv = require("yargs").argv;
+const argv = require("yargs").argv;
 const contacts = require("./contacts");
 
-// TODO: рефакторить
 async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
@@ -10,15 +9,21 @@ async function invokeAction({ action, id, name, email, phone }) {
       break;
 
     case "get":
-      // ... id
+      const contactById = await contacts.getContactById(id);
+      console.table(contactById);
+
       break;
 
     case "add":
-      // ... name email phone
+      const newContact = await contacts.addContact(name, email, phone);
+      console.table(newContact);
+
       break;
 
     case "remove":
-      // ... id
+      const removeContact = await contacts.removeContact(id);
+      console.table(removeContact);
+
       break;
 
     default:
@@ -26,4 +31,4 @@ async function invokeAction({ action, id, name, email, phone }) {
   }
 }
 
-invokeAction({ action: "list" });
+invokeAction(argv);
